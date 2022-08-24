@@ -1,0 +1,6 @@
+C:\Users\kai\source\repos\LibraryApplication\LibraryApplication.Library\bin\Debug\LibraryApplication.Library.dll
+C:\Users\kai\source\repos\LibraryApplication\LibraryApplication.Library\bin\Debug\LibraryApplication.Library.pdb
+C:\Users\kai\source\repos\LibraryApplication\LibraryApplication.Library\obj\Debug\LibraryApplication.Library.csproj.AssemblyReference.cache
+C:\Users\kai\source\repos\LibraryApplication\LibraryApplication.Library\obj\Debug\LibraryApplication.Library.csproj.CoreCompileInputs.cache
+C:\Users\kai\source\repos\LibraryApplication\LibraryApplication.Library\obj\Debug\LibraryApplication.Library.dll
+C:\Users\kai\source\repos\LibraryApplication\LibraryApplication.Library\obj\Debug\LibraryApplication.Library.pdb

@@ -1,0 +1,98 @@
+﻿@using LibraryApplication.Library
+@model IEnumerable<LibraryApplication.Models.Book>
+
+
+@{
+    ViewBag.Title = "Index";
+    int pageNum = ViewBag.Page ?? 1;
+    int totalCount = ViewBag.TotalCount ?? 0;
+    int maxListCount = ViewBag.MaxListCount ?? 1;
+    int totalPageCount = Convert.ToInt32(Math.Ceiling((double)totalCount / maxListCount));
+    var commonLib = new CommonLibrary();
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" style="user-select: auto;">
+    <tr style="user-select: auto;">
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Writer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pulisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Published_date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="table-primary" : auto;">
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Writer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pulisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Published_date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+            </td>
+        </tr>
+    }
+
+</table>
+<form class="form-control" style="border:none">
+    <div class="input-group">
+        <span class="form-select">
+            <select name="searchKind" class="form-control">
+                <option value="Title" @(ViewBag.Searchkind == "Title" ? "selected" : "")>Title</option>
+                <option value="Writer" @(ViewBag.Searchkind == "Writer" ? "selected" : "")>Writer</option>
+                <option value="Publisher" @(ViewBag.Searchkind == "Publisher" ? "selected" : "")>Publisher</option>
+            </select>
+
+        </span>
+        <input class="form-control" type="text" name="keyword" value="@ViewBag.Keyword" />
+        <span class="input-group-btn">
+            <button class="btn btn-info" type="submit">Search</button>
+        </span>
+    </div>
+</form>
+
+<br />
+
+<div style="user-select: auto;">
+    <ul class="pagination" style="user-select: auto;">
+        <li class="page-item disabled" style="user-select: auto;">
+            <a class="page-link" href="#" style="user-select: auto;">&laquo;</a>
+        </li>
+        @for (int i = 1; i <= totalPageCount; i++)
+        {
+            <li class="page-item @(pageNum == i ? "active" : "")" style="user-select: auto;">
+                <a class="page-link" href="@commonLib.AddUrlParameter("page",i.ToString())" style="user-select: auto;">@i</a>
+            </li>
+        }
+
+    </ul>
+</div>
